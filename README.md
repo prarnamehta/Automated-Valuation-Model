@@ -4,7 +4,7 @@
 A simple automation model is build to predict the assessed value of a residential property in Winnipeg. The following steps were followed to build this automation:
 
 **1. Data Collection**
-The csv data was extracted from [Assessment dataset] https://data.winnipeg.ca/Assessment-Taxation-Corporate/Assessment-Parcels/d4mq-wa44/about_data. 
+The csv data was extracted from [Assessment dataset] (https://data.winnipeg.ca/Assessment-Taxation-Corporate/Assessment-Parcels/d4mq-wa44/about_data). 
 
 **2. Data Pre-Processing**
 

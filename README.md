@@ -7,10 +7,18 @@ A simple automation model is build to predict the assessed value of a residentia
 The csv data was extracted from [Assessment dataset] https://data.winnipeg.ca/Assessment-Taxation-Corporate/Assessment-Parcels/d4mq-wa44/about_data. 
 
 **2. Data Pre-Processing**
+
 •	Drops empty and irrelevant columns.
+
 •	Cleans numeric columns with special characters (e.g., $, ,).
-•	Handles missing values using median (numerical) and mode or "Missing" (categorical).
+
+•	Handles missing values using median for numerical columns and mode or "Missing" for categorical columns.
+
 •	Filters for residential properties using Property Use Code.
+
+* Correlation analysis indicated weak relationships, meaning some columns were dropped that had low correlation value
+
+* 
 
 
 ### Assumtions:

@@ -45,7 +45,9 @@ o	Visualizations (scatter plots and residuals)
 2. The assignment asked for prediction model for residential properties, hence an extracted subset was used to test
 3. I used 'Total assessed value' as my dependent variable
 4. The models: Random Forest and XGBoost (Reference 1) are robust and best used with dataset with numerical and categorical features. These algorithms also helps with feature importance that optimises the prediction model results.
-5. 
+
+## Non-Technical Description
+
 
 ### Acknowledgement:
 1. http://www.sciencedirect.com/science/article/pii/S0264275124003299

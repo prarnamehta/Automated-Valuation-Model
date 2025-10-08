@@ -1,4 +1,4 @@
-# Winnipeg Residential Property Valuation Model
+# Winnipeg Residential Property Valuation Model[^1] 
 
 (a) Accessible description of the work for a non-technical client, not exceeding 200 words.
 
@@ -102,12 +102,16 @@ Random Forest and XGBoost performed best, with high R² and low error rates.
 
 ## Limitations
 
-While the model provides useful estimates, it does **not account for**:
+1. The dataset was missing other property features like,
 - Interior upgrades or renovations
-- Market volatility or economic shifts
-- Unique property features not captured in the dataset
 
-It is intended to display technical skills and not a replacement of professional appraisals
+- Previous sales
+
+- Unique property features etc
+
+2. Due to time constraint and lack of business knowledge, the model was kept simple
+
+(500 words)
 
 ---
 
@@ -135,5 +139,7 @@ Enter basic property details into the app to get an estimated value.
 Or launch the full notebook here:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/prarnamehta/AVM/HEAD?filepath=Automated%20valuation%20model.ipynb)
+
+[^1]: This project is intended to display technical skills only
 
 Please Note: The firewall of an organisation might prevent from accessing the datafile. In that case, please view the pdf file of the same code to see the charts and results

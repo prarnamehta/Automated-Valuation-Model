@@ -4,51 +4,25 @@
 
 ## Non-Technical Description
 ### Project Objective
-This project presents a machine learning based model, **Automation Valuation Model (AVM)** designed to estimate valuation of a residential property in Winnipeg based on property's features. An AVM is a tool based on mathematical and statistical modelling that uses property features like year built, number of rooms, living square footage etc to assess property's value. The model is trained using historic data extracted from City of Winnipeg public data repository. The goal is create a simple estimaion model based on key features.
+This project presents an **Automation Valuation Model (AVM)** to estimate valuation of a residential property in Winnipeg using machine learning. The model is trained on historic property data from City of Winnipeg public data repository and predicts residential property’s value based on features like year built, number of rooms, neighborhood, and living area.
 
 ### What It does
-The model predicts the valuation of a residential property using information like
- 
- * Year Built
 
- * Number of rooms
-
- * Neighbourhood Area
-
- * Living Area etc
-
-### How it works
-
-The model has reviewed 203558 assessed value of residential properties in Winnipeg. It learns different patterns in the historic data for example, which Year built had greater value, which area was more popular, average living area value. These learned patterns are then used to estimate a fair value of a property when a user enters details.
+The model analyzes over 200,000 residential property records to learn patterns for example, which Yneighbourhoods are more popular or how living area affects price. These learned patterns are then used to estimate a fair value of property when a user enters details.
 
 ### How it was built
 
-The model is built using **Python**, a programming language for data science, and **Jupyter Notebook** that is an interactive web-based platform to clean and explore data.
+The model is built using [**Python**](https://www.python.org/) and [**Jupyter Notebook**](https://jupyter.org/).  The data was cleaned, standardized, and filtered to focus on residential properties. Missing values were filled, and categorical data was encoded for modeling. Three algorithms—Random Forest, XGBoost, and Linear Regression—were tested with two scaling methods to find the best performer.
 
-#### 🧹 Data Preparation
-The data went through following pre-processing steps,
--**Cleaning**: Removed empty/irrelevant columns and rows with corrupted values
--**Standardization**: Converted special characters ( e.g. '$',',') in numeric fields to proper numerical formats
--**Filtering**: Focused on only residential property types
--**Imputation**: Filled missing values using statistical methods
--**Encoding**: Categorical features were converted to numerics
+### Key Results
 
-#### Model Training
-The dataset was split into *80% training* and *20% testing*
-Three Machine learning algorithms were trained and assessed:
+ The key influential features n predicting property value were,
+ - **Total Living Area**
+ - **Year Built**
+ - **Neighborhood Area**
+ - **Zoning**
+ - **Garage and Basement Types**
 
-- **Random Forest Regressor**
-- **XGBoost Regressor**
-- **Linear Regression**
-
-Each model was tested with two scaling techniques:
-- **Min-Max Scaling**
-- **Z-Score Standardization**
-
-Feature scaling normalises the values after encoding categorical variables that helps machine learning algorithms.
-
-
-Due to time constraints, the model developed is extremely simple but supported by strong research. This automation is based on historic data that might not include all factors to predict the valuation. 
 
 
 (b) A more detailed description of the work with technical specifics justifying your modelling choices that does not exceed 500 words.
@@ -59,6 +33,47 @@ A simple automation model is build to predict the assessed value of a residentia
 
 **1. Data Collection**
 The csv data was extracted from [Assessment dataset](https://data.winnipeg.ca/Assessment-Taxation-Corporate/Assessment-Parcels/d4mq-wa44/about_data)
+
+#### 🧹 Data Preparation
+The data went through following pre-processing steps,
+
+-**Cleaning**: Removed empty/irrelevant columns and rows with corrupted values
+
+-**Standardization**: Converted special characters ( e.g. '$',',') in numeric fields to proper numerical formats
+
+-**Filtering**: Focused on only residential property types
+
+-**Imputation**: Filled missing values using statistical methods
+
+-**Encoding**: Categorical features were converted to numerics
+
+#### Model Training
+The dataset was split into *80% training* and *20% testing*
+Three Machine learning algorithms were trained and assessed:
+
+- **Random Forest Regressor**
+
+- **XGBoost Regressor**
+
+- **Linear Regression**
+
+Each model was tested with two scaling techniques:
+- **Min-Max Scaling**
+
+- **Z-Score Standardization**
+
+Feature scaling normalises the values after encoding categorical variables that helps machine learning algorithms to correctly work.
+
+## 📈 Model Evaluation
+
+Models were evaluated using:
+
+- **R² (R-squared)** – How well the model explains price variation
+
+- **MAPE** – Mean Absolute Percentage Error measures how far off the model’s predictions are, on average, as a percentage of the actual property values.
+
+- **nRMSE** – Normalized Root Mean Squared Error measures how much the predictions deviate from the actual values, but it scales the error based on the range of property prices in the dataset.
+
 
 **2. Data Pre-Processing**
 
@@ -101,6 +116,22 @@ o	Visualizations (scatter plots and residuals)
 4. The models: Random Forest and XGBoost (Reference 1) are robust and best used with dataset with numerical and categorical features. These algorithms also helps with feature importance that optimises the prediction model results.
 5. Due to time constraints and lack of expert knowledge, the deployment of the prediction model was kept simple. 
 
+## ⚠️ Limitations
+
+While the model provides useful estimates, it does **not account for**:
+- Interior upgrades or renovations
+- Market volatility or economic shifts
+- Unique property features not captured in the dataset
+
+It is intended to display technical skills and not a replacement of professional appraisals
+
+---
+
+## 📂 Outputs
+
+- `model_performance_comparison.csv` – Evaluation metrics for each model
+- `feature_importance_comparison.csv` – Ranked feature importances
+- `*.png` – Visualizations of predictions and residuals
 
 
 ### Acknowledgement:
@@ -122,3 +153,4 @@ Or launch the full notebook here:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/prarnamehta/AVM/HEAD?filepath=Automated%20valuation%20model.ipynb)
 
+Please Note: The firewall of an organisation might prevent from accessing the datafile.

@@ -34,7 +34,7 @@ A simple automation model is build to predict the assessed value of a residentia
 **1. Data Collection**
 The csv data was extracted from [Assessment dataset](https://data.winnipeg.ca/Assessment-Taxation-Corporate/Assessment-Parcels/d4mq-wa44/about_data)
 
-#### 🧹 Data Preparation
+### 🧹 Data Preparation
 The data went through following pre-processing steps,
 
 -**Cleaning**: Removed empty/irrelevant columns and rows with corrupted values
@@ -45,9 +45,19 @@ The data went through following pre-processing steps,
 
 -**Imputation**: Filled missing values using statistical methods
 
--**Encoding**: Categorical features were converted to numerics
+### 🔧 Feature Engineering
 
-#### Model Training
+•	**Low-cardinality categorical features** (≤ 20 unique values) were one-hot encoded.
+
+•	**High-cardinality features** were frequency encoded.
+
+•	Redundant or high-dimensional columns (e.g., Roll Number, Status, Property Class etc.) were dropped.
+
+### 📊 Correlation & Feature Selection
+
+A correlation matrix was used to identify features most related to Total Assessed Value. Features weith low or no correlation (e.g., GISID. Centroid Lon/Lat) were removed.
+
+### Model Training
 The dataset was split into *80% training* and *20% testing*
 Three Machine learning algorithms were trained and assessed:
 
@@ -64,7 +74,7 @@ Each model was tested with two scaling techniques:
 
 Feature scaling normalises the values after encoding categorical variables that helps machine learning algorithms to correctly work.
 
-## 📈 Model Evaluation
+### 📈 Model Evaluation
 
 Models were evaluated using:
 
@@ -74,47 +84,21 @@ Models were evaluated using:
 
 - **nRMSE** – Normalized Root Mean Squared Error measures how much the predictions deviate from the actual values, but it scales the error based on the range of property prices in the dataset.
 
+Random Forest and XGBoost performed best, with high R² and low error rates.
 
-**2. Data Pre-Processing**
+### 📈 Visualizations
 
-•	Drops empty and irrelevant columns.
+1. **Feature Improtance Chart** : Averaged from Random Forest and XGBoost showing top predictors: Total living area, Year Built, Neighbourhood Area, Zoning, Garage/ Basement
+2. **Actual vs. Predicted Scatter Plots** : The clustering around the diagonal for XGBoost with Z-Score scaling indicating it was a good fit
+3. **Residual Plots** : The residuals for Random Forest with min-max scaling was randomly distributed around zero indicating no bias
+4. **Runtime & MSE charts** : Linear Regression has shortest runtime but low accuracy whereas XGBoost has high accuracy but long runtime
 
-•	Cleans numeric columns with special characters (e.g., $, ,).
-
-•	Handles missing values using median for numerical columns and mode or "Missing" for categorical columns.
-
-•	Filters for residential properties using Property Use Code.
-
-**3. Feature Engineering**
-
-•	Drops high-cardinality categorical columns ( columns with more than 500 categories)
-
-•	Applied: 
-o	One-hot encoding for low-cardinality categorical features.
-o	Frequency encoding for high-cardinality ones.
-
-•	Feature Scaling:
-o	MinMaxScaler
-o	StandardScaler
-Both of the methods were compared to identify the best performing model
-
-**4. Modeling**
-•	Trains two models: RandomForestRegressor, and XGBRegressor.
-•	Evaluates each with: 
-o	Metrics: R², MAPE, nRMSE.
-•	Saves: 
-o	Performance metrics (model_performance_comparison.csv)
-o	Feature importances (feature_importance_comparison.csv)
-o	Visualizations (scatter plots and residuals)
-
-
-
-### Assumptions:
-1. The dataset extracted from the above mentioned website was a large file. I used a random subset of the file to tackle the problem.
-2. The assignment asked for prediction model for residential properties, hence an extracted subset was used to test
-3. I used 'Total assessed value' as my dependent variable
-4. The models: Random Forest and XGBoost (Reference 1) are robust and best used with dataset with numerical and categorical features. These algorithms also helps with feature importance that optimises the prediction model results.
-5. Due to time constraints and lack of expert knowledge, the deployment of the prediction model was kept simple. 
+## 📌 Assumptions:
+1. The assessed value is a reliable proxy for market value, hence used as target variable.
+2. The residential properties are identified using Property Use Code
+3. Missing values are imputed using median/mode
+4. The models: [Random Forest and XGBoost are robust](http://www.sciencedirect.com/science/article/pii/S0264275124003299) and best used with dataset with numerical and categorical features. These algorithms also helps with feature importance that optimises the prediction model results.
+5. Due to time constraints, the deployment of the prediction model was kept simple. 
 
 ## ⚠️ Limitations
 
@@ -134,12 +118,11 @@ It is intended to display technical skills and not a replacement of professional
 - `*.png` – Visualizations of predictions and residuals
 
 
-### Acknowledgement:
+## Acknowledgement:
 1. http://www.sciencedirect.com/science/article/pii/S0264275124003299
-2. Microsoft Co-Pilot to deploy the prediction model, to brush up skills and knowledge.
+2. Microsoft Co-Pilot was used to brush up deployment skills and knowledge, GitHub upload, deal with large datasets in Streamlite 
 
-
-### Try the App (Deployment)
+## Try the App (Deployment)
 
 You can test the model using this interactive app:
 [🔗 Automated Valuation App](https://automated-valuation-model.streamlit.app/)
@@ -153,4 +136,4 @@ Or launch the full notebook here:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/prarnamehta/AVM/HEAD?filepath=Automated%20valuation%20model.ipynb)
 
-Please Note: The firewall of an organisation might prevent from accessing the datafile.
+Please Note: The firewall of an organisation might prevent from accessing the datafile. In that case, please view the pdf file of the same code to see the charts and results

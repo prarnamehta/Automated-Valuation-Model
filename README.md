@@ -1,4 +1,14 @@
 # Automated-Valuation-Model
+
+(a) Accessible description of the work for a non-technical client, not exceeding 200 words.
+
+## Non-Technical Description
+An automated valuation models is a tool based on mathematical and statistical modelling that uses property features like year built, number of rooms, living square footage etc to assess property's value. Due to time constraints, the model developed is extremely simple but supported by strong research. This automation is based on historic data that might not include all factors to predict the valuation. 
+
+The first step to build the model was to preprocess the data
+
+(b) A more detailed description of the work with technical specifics justifying your modelling choices that does not exceed 500 words.
+
 ## Technical Description
 
 A simple automation model is build to predict the assessed value of a residential property in Winnipeg. The Softwrae development workflow is as following:
@@ -45,8 +55,8 @@ o	Visualizations (scatter plots and residuals)
 2. The assignment asked for prediction model for residential properties, hence an extracted subset was used to test
 3. I used 'Total assessed value' as my dependent variable
 4. The models: Random Forest and XGBoost (Reference 1) are robust and best used with dataset with numerical and categorical features. These algorithms also helps with feature importance that optimises the prediction model results.
+5. Due to time constraints and lack of expert knowledge, the deployment of the prediction model was kept simple. 
 
-## Non-Technical Description
 
 
 ### Acknowledgement:

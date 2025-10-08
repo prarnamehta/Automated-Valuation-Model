@@ -34,7 +34,7 @@ A simple automation model is build to predict the assessed value of a residentia
 **1. Data Collection**
 The csv data was extracted from [Assessment dataset](https://data.winnipeg.ca/Assessment-Taxation-Corporate/Assessment-Parcels/d4mq-wa44/about_data)
 
-### 🧹 Data Preparation
+### Data Preparation
 The data went through following pre-processing steps,
 
 -**Cleaning**: Removed empty/irrelevant columns and rows with corrupted values
@@ -45,7 +45,7 @@ The data went through following pre-processing steps,
 
 -**Imputation**: Filled missing values using statistical methods
 
-### 🔧 Feature Engineering
+### Feature Engineering
 
 •	**Low-cardinality categorical features** (≤ 20 unique values) were one-hot encoded.
 
@@ -53,7 +53,7 @@ The data went through following pre-processing steps,
 
 •	Redundant or high-dimensional columns (e.g., Roll Number, Status, Property Class etc.) were dropped.
 
-### 📊 Correlation & Feature Selection
+### Correlation & Feature Selection
 
 A correlation matrix was used to identify features most related to Total Assessed Value. Features weith low or no correlation (e.g., GISID. Centroid Lon/Lat) were removed.
 
@@ -74,7 +74,7 @@ Each model was tested with two scaling techniques:
 
 Feature scaling normalises the values after encoding categorical variables that helps machine learning algorithms to correctly work.
 
-### 📈 Model Evaluation
+### Model Evaluation
 
 Models were evaluated using:
 
@@ -86,21 +86,21 @@ Models were evaluated using:
 
 Random Forest and XGBoost performed best, with high R² and low error rates.
 
-### 📈 Visualizations
+### Visualizations
 
 1. **Feature Improtance Chart** : Averaged from Random Forest and XGBoost showing top predictors: Total living area, Year Built, Neighbourhood Area, Zoning, Garage/ Basement
 2. **Actual vs. Predicted Scatter Plots** : The clustering around the diagonal for XGBoost with Z-Score scaling indicating it was a good fit
 3. **Residual Plots** : The residuals for Random Forest with min-max scaling was randomly distributed around zero indicating no bias
 4. **Runtime & MSE charts** : Linear Regression has shortest runtime but low accuracy whereas XGBoost has high accuracy but long runtime
 
-## 📌 Assumptions:
+## Assumptions:
 1. The assessed value is a reliable proxy for market value, hence used as target variable.
 2. The residential properties are identified using Property Use Code
 3. Missing values are imputed using median/mode
 4. The models: [Random Forest and XGBoost are robust](http://www.sciencedirect.com/science/article/pii/S0264275124003299) and best used with dataset with numerical and categorical features. These algorithms also helps with feature importance that optimises the prediction model results.
 5. Due to time constraints, the deployment of the prediction model was kept simple. 
 
-## ⚠️ Limitations
+## Limitations
 
 While the model provides useful estimates, it does **not account for**:
 - Interior upgrades or renovations
@@ -111,7 +111,7 @@ It is intended to display technical skills and not a replacement of professional
 
 ---
 
-## 📂 Outputs
+## Outputs
 
 - `model_performance_comparison.csv` – Evaluation metrics for each model
 - `feature_importance_comparison.csv` – Ranked feature importances

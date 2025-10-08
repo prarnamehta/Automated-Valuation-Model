@@ -3,7 +3,29 @@
 (a) Accessible description of the work for a non-technical client, not exceeding 200 words.
 
 ## Non-Technical Description
-An automated valuation models is a tool based on mathematical and statistical modelling that uses property features like year built, number of rooms, living square footage etc to assess property's value. Due to time constraints, the model developed is extremely simple but supported by strong research. This automation is based on historic data that might not include all factors to predict the valuation. 
+### Project Description
+The model, **Automation Valuation Model (AVM)** developed is to estimate valuation of a residential property in Winnipeg based on property's features. An automated valuation models is a tool based on mathematical and statistical modelling that uses property features like year built, number of rooms, living square footage etc to assess property's value. The model is trained using historic data extracted from City of Winnipeg public data repository. The goal is create a simple estimaion model based on key features.
+
+### What It does
+The model predicts the valuation of a residential property using information like
+ 
+ * Year Built
+
+ * Number of rooms
+
+ * Neighbourhood Area
+
+ * Living Area
+
+### How it works
+
+The model has reviewed 203558 assessed value of residential properties in Winnipeg. It learns different patterns in the historic data for example, which Year built had greater value, which area was more popular, average living area value. These learned patterns are then used to estimate a fair value of a property when a user enters details.
+
+### How it was built
+
+The model is built using Python, a programming language for data science, using Jupyter Notebook that is an interactive platform to clean and explore data.  
+
+Due to time constraints, the model developed is extremely simple but supported by strong research. This automation is based on historic data that might not include all factors to predict the valuation. 
 
 The first step to build the model was to preprocess the data
 

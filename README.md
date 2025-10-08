@@ -1,10 +1,10 @@
-# Automated-Valuation-Model
+# Winnipeg Residential Property Valuation Model
 
 (a) Accessible description of the work for a non-technical client, not exceeding 200 words.
 
 ## Non-Technical Description
-### Project Description
-The model, **Automation Valuation Model (AVM)** developed is to estimate valuation of a residential property in Winnipeg based on property's features. An automated valuation models is a tool based on mathematical and statistical modelling that uses property features like year built, number of rooms, living square footage etc to assess property's value. The model is trained using historic data extracted from City of Winnipeg public data repository. The goal is create a simple estimaion model based on key features.
+### Project Objective
+This project presents a machine learning based model, **Automation Valuation Model (AVM)** designed to estimate valuation of a residential property in Winnipeg based on property's features. An AVM is a tool based on mathematical and statistical modelling that uses property features like year built, number of rooms, living square footage etc to assess property's value. The model is trained using historic data extracted from City of Winnipeg public data repository. The goal is create a simple estimaion model based on key features.
 
 ### What It does
 The model predicts the valuation of a residential property using information like
@@ -15,7 +15,7 @@ The model predicts the valuation of a residential property using information lik
 
  * Neighbourhood Area
 
- * Living Area
+ * Living Area etc
 
 ### How it works
 
@@ -23,11 +23,33 @@ The model has reviewed 203558 assessed value of residential properties in Winnip
 
 ### How it was built
 
-The model is built using Python, a programming language for data science, using Jupyter Notebook that is an interactive platform to clean and explore data.  
+The model is built using **Python**, a programming language for data science, and **Jupyter Notebook** that is an interactive web-based platform to clean and explore data.
+
+#### 🧹 Data Preparation
+The data went through following pre-processing steps,
+-**Cleaning**: Removed empty/irrelevant columns and rows with corrupted values
+-**Standardization**: Converted special characters ( e.g. '$',',') in numeric fields to proper numerical formats
+-**Filtering**: Focused on only residential property types
+-**Imputation**: Filled missing values using statistical methods
+-**Encoding**: Categorical features were converted to numerics
+
+#### Model Training
+The dataset was split into *80% training* and *20% testing*
+Three Machine learning algorithms were trained and assessed:
+
+- **Random Forest Regressor**
+- **XGBoost Regressor**
+- **Linear Regression**
+
+Each model was tested with two scaling techniques:
+- **Min-Max Scaling**
+- **Z-Score Standardization**
+
+Feature scaling normalises the values after encoding categorical variables that helps machine learning algorithms.
+
 
 Due to time constraints, the model developed is extremely simple but supported by strong research. This automation is based on historic data that might not include all factors to predict the valuation. 
 
-The first step to build the model was to preprocess the data
 
 (b) A more detailed description of the work with technical specifics justifying your modelling choices that does not exceed 500 words.
 

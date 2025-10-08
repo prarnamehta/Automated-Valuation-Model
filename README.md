@@ -23,7 +23,7 @@ The model is built using [**Python**](https://www.python.org/) and [**Jupyter No
  - **Zoning**
  - **Garage and Basement Types**
 
-
+(187 words)
 
 (b) A more detailed description of the work with technical specifics justifying your modelling choices that does not exceed 500 words.
 

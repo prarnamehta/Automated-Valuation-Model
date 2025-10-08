@@ -138,7 +138,7 @@ Enter basic property details into the app to get an estimated value.
 
 Or launch the full notebook here:
 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/prarnamehta/Automated-Valuation-Model/HEAD?filepath=Automated%20valuation%20model.ipynb)
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/prarnamehta/Automated-Valuation-Model/HEAD?filepath=Automated%20Valuation%20Model.ipynb)
 
 [^1]: This project is intended to display technical skills only
 

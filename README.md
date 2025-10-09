@@ -8,7 +8,7 @@ This project presents an **Automation Valuation Model (AVM)** to estimate valuat
 
 ### What It does
 
-The model analyzes over 200,000 residential property records to learn patterns for example, which Yneighbourhoods are more popular or how living area affects price. These learned patterns are then used to estimate a fair value of property when a user enters details.
+The model analyzes over 200,000 residential property records to learn patterns for example, which neighbourhoods are more popular or how living area affects price. These learned patterns are then used to estimate a fair value of property when a user enters details.
 
 ### How it was built
 
@@ -16,7 +16,7 @@ The model is built using [**Python**](https://www.python.org/) and [**Jupyter No
 
 ### Key Results
 
- The key influential features n predicting property value were,
+ The key influential features in predicting property value were,
  - **Total Living Area**
  - **Year Built**
  - **Neighborhood Area**
@@ -55,7 +55,7 @@ The data went through following pre-processing steps,
 
 ### Correlation & Feature Selection
 
-A correlation matrix was used to identify features most related to Total Assessed Value. Features weith low or no correlation (e.g., GISID. Centroid Lon/Lat) were removed.
+A correlation matrix was used to identify features most related to Total Assessed Value. Features with low or no correlation ranging between 0.0009 to -0.0009 (e.g., GISID. Centroid Lon/Lat) were removed.
 
 ### Model Training
 The dataset was split into *80% training* and *20% testing*
@@ -102,14 +102,14 @@ Random Forest and XGBoost performed best, with high R² and low error rates.
 
 ## Limitations
 
-1. The dataset was missing other property features like,
-- Interior upgrades or renovations
+1. The dataset was missing features like,
+- Interior upgrades
 
 - Previous sales
 
-- Unique property features etc
+- Unique property features
 
-2. Due to time constraint and lack of business knowledge, the model was kept simple
+2. In view of limited available business inputs and project timelines, the model was developed in a simplified form to ensure interpretability and over model understanding
 
 (500 words)
 

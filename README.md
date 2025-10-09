@@ -136,6 +136,11 @@ To use it:
 Download the property data from the link above.
 Enter basic property details into the app to get an estimated value.
 
+Note:
+- In the app, there are pre-assigned sample input values, that can be modified to get desired results.
+- If the app goes to sleep, just hit the button to re-activate it.
+- The app might take longer to process due to large file size and connectivity
+
 Or launch the full notebook here:
 
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/prarnamehta/Automated-Valuation-Model/HEAD?filepath=Automated%20valuation%20model.ipynb)
